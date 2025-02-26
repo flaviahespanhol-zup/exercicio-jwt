@@ -3,6 +3,7 @@ package com.exercicio.jwt.controllers;
 import com.exercicio.jwt.dtos.AuthResponseDto;
 import com.exercicio.jwt.dtos.PostLoginDto;
 import com.exercicio.jwt.services.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
 
+    @Autowired
     private LoginService loginService;
 
     @PostMapping
     public ResponseEntity<AuthResponseDto> loginController(@RequestBody PostLoginDto newLogin){
 
-        String token = loginService.loginService(newLogin);
+        String token = loginService.login(newLogin);
 
         AuthResponseDto authResponseDto = new AuthResponseDto();
         authResponseDto.setAccessToken(token);
