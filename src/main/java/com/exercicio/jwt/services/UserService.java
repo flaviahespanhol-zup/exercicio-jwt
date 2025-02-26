@@ -6,6 +6,7 @@ import com.exercicio.jwt.models.User;
 import com.exercicio.jwt.repositories.RoleRepository;
 import com.exercicio.jwt.repositories.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -16,10 +17,10 @@ public class UserService {
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder bCryptPasswordEncoder;
 
     public UserService(UserRepository userRepository, RoleRepository roleRepository,
-                       BCryptPasswordEncoder bCryptPasswordEncoder) {
+                       PasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
