@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public void registerUserService(PostUserDto registerUserDto){
-        if (userRepository.findByEmail(registerUserDto.getEmail())){
+        if (userRepository.existsByEmail(registerUserDto.getEmail())){
             throw new RuntimeException("E-mail already exists!");
         }
 
