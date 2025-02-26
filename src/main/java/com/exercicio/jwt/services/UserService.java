@@ -5,7 +5,6 @@ import com.exercicio.jwt.models.Role;
 import com.exercicio.jwt.models.User;
 import com.exercicio.jwt.repositories.RoleRepository;
 import com.exercicio.jwt.repositories.UserRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +14,9 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
-    private PasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder bCryptPasswordEncoder;
 
     public UserService(UserRepository userRepository, RoleRepository roleRepository,
                        PasswordEncoder bCryptPasswordEncoder) {

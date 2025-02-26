@@ -26,8 +26,6 @@ public class LoginService {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = jwtTokenProvider.generateToken(authentication);
-
-        return token;
+        return jwtTokenProvider.generateToken(authentication);
     }
 }
